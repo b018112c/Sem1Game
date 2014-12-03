@@ -42,6 +42,7 @@
     <Compile Include="Background.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Foreground.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -65,6 +66,7 @@
     <Content Include="textures\top.png" />
     <Content Include="textures\top2.png" />
     <Content Include="textures\background2.png" />
+    <Content Include="textures\foreground2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="textures\Thumbs.db" />

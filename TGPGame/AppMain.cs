@@ -18,6 +18,7 @@ namespace TGPGame
 		private static Sce.PlayStation.HighLevel.UI.Scene uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
 		
+		private static Foreground foreground;
 		private static Obstacle[] obstacles;
 		private static Player player;
 		private static Background background;
@@ -41,6 +42,7 @@ namespace TGPGame
 				Director.Instance.GL.Context.SwapBuffers();
 				Director.Instance.PostSwap();
 			}		
+			foreground.Dispose();
 			player.Dispose();
 			foreach(Obstacle obstacle in obstacles)
 				obstacle.Dispose();
@@ -74,6 +76,7 @@ namespace TGPGame
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
+			foreground = new Foreground(gameScene);
 			//Create objects
 			background = new Background(gameScene);
 			
@@ -84,6 +87,8 @@ namespace TGPGame
 			obstacles[1] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
 			obstacles[2] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
 			Director.Instance.RunWithScene(gameScene, true);
+			
+			foreground = new Foreground(gameScene);
 		}	
 
 		public static void Update ()
@@ -100,6 +105,7 @@ namespace TGPGame
 			
 			if(player.Alive)
 			{
+				foreground.Update(0.0f);
 				background.Update(0.0f);
 
 				foreach(Obstacle obstacle in obstacles)
