@@ -33,7 +33,7 @@ namespace TGPGame
 			sprite = new SpriteUV(textureInfo);	
 			sprite.Quad.S = textureInfo.TextureSizef;
 			
-			sprite.Position = new Vector2(50.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
+			sprite.Position = new Vector2(50.0f,(Director.Instance.GL.Context.GetViewport().Height*0.5f)-30.0f);
 			//sprite.Pivot = new Vector2(0.5f,0.5f);
 			
 			rise  = false;

@@ -58,7 +58,6 @@
     <Folder Include="textures\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="textures\background.png" />
     <Content Include="textures\bottom.png" />
     <Content Include="textures\egg.png" />
     <Content Include="textures\foreground.png" />

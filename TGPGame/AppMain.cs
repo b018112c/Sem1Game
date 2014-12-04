@@ -76,7 +76,6 @@ namespace TGPGame
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
-			foreground = new Foreground(gameScene);
 			//Create objects
 			background = new Background(gameScene);
 			
