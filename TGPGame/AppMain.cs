@@ -23,8 +23,6 @@ namespace TGPGame
 		private static Player player;
 		private static Background background;
 		
-		//private static GraphicsContext graphics;
-		
 		public static void Main (string[] args)
 		{
 

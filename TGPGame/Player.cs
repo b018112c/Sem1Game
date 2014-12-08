@@ -16,15 +16,11 @@ namespace TGPGame
 		private static int pushAmount = 100;
 		private static float yPositionBeforePush;
 		private static bool	rise;
-		//private static float angle;
 		private static bool	alive;
 		
 		public bool Alive { get{return alive;} set{alive = value;} }
 		
-		//Accessors.
-		//public SpriteUV Sprite { get{return sprite;} }
-		
-		//Public functions.
+		//Public functions
 		public Player (Scene scene)
 		{
 			textureInfo = new TextureInfo("/Application/textures/egg.png");
@@ -34,12 +30,11 @@ namespace TGPGame
 			sprite.Quad.S = textureInfo.TextureSizef;
 			
 			sprite.Position = new Vector2(50.0f,(Director.Instance.GL.Context.GetViewport().Height*0.5f)-30.0f);
-			//sprite.Pivot = new Vector2(0.5f,0.5f);
 			
 			rise  = false;
 			alive = true;
 			
-			//Add to the current scene.
+			//Add to current scene
 			scene.AddChild(sprite);
 		}
 		

@@ -59,10 +59,10 @@ namespace TGPGame
 			height = b.Point01.Y;
 			
 			//Position objects
-			sprites[0].Position = new Vector2(startX, Director.Instance.GL.Context.GetViewport().Height -220);		
-			sprites[1].Position = new Vector2(startX, -10);		
+		//	sprites[0].Position = new Vector2(startX, Director.Instance.GL.Context.GetViewport().Height -220);		
+		//	sprites[1].Position = new Vector2(startX, -10);		
 			//sprites[0].Position.Y-height-kGap used in Y
-			sprites[2].Position = new Vector2(startX, 200);
+		//	sprites[2].Position = new Vector2(startX, 200);
 		}
 		
 		
@@ -71,13 +71,17 @@ namespace TGPGame
 			sprites[0].Position = new Vector2(sprites[0].Position.X - 3, sprites[0].Position.Y); //speed
 			sprites[1].Position = new Vector2(sprites[1].Position.X - 3, sprites[1].Position.Y);
 			sprites[2].Position = new Vector2(sprites[2].Position.X - 3, sprites[2].Position.Y);
-			//If off the left of the viewport, loop them around.
-			if(sprites[0].Position.X < -width)
-			{
-				sprites[0].Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width, Director.Instance.GL.Context.GetViewport().Height - 220); //randomise distance(x)
-				sprites[1].Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width, -10);
-				sprites[2].Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width, 200);
-			}		
+			Random rnd = new Random();
+			int zero = rnd.Next(1, 500);
+			int one = rnd.Next(1, 300);
+			int two = rnd.Next(1, 500);
+			if(sprites[0].Position.X <= -200)//If off the left of the viewport, loop them around
+				sprites[0].Position = new Vector2(960 + zero, Director.Instance.GL.Context.GetViewport().Height - 220); //randomise distance(x)
+			if(sprites[1].Position.X <= -200)
+				sprites[1].Position = new Vector2(960 + one, -10);
+			if(sprites[2].Position.X <= -200)
+				sprites[2].Position = new Vector2(960 + two, 200);
+					
 		}
 		
 		
