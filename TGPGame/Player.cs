@@ -10,7 +10,7 @@ namespace TGPGame
 {
 	public class Player
 	{
-		//Private variables.
+		//Private variables
 		private static SpriteUV sprite;
 		private static TextureInfo textureInfo;
 		private static int pushAmount = 100;
@@ -23,7 +23,7 @@ namespace TGPGame
 		//Public functions
 		public Player (Scene scene)
 		{
-			textureInfo = new TextureInfo("/Application/textures/egg.png");
+			textureInfo = new TextureInfo("/Application/textures/eggy.png");
 			
 			sprite = new SpriteUV();
 			sprite = new SpriteUV(textureInfo);	
@@ -34,7 +34,7 @@ namespace TGPGame
 			rise  = false;
 			alive = true;
 			
-			//Add to current scene
+			//Add to scene
 			scene.AddChild(sprite);
 		}
 		
@@ -48,7 +48,6 @@ namespace TGPGame
 			//adjust the push
 			if(rise)
 			{
-				
 				if( (sprite.Position.Y-yPositionBeforePush) < pushAmount)
 					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3f);
 				else
@@ -56,7 +55,6 @@ namespace TGPGame
 			}
 			else
 			{
-				
 				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 0);
 			}
 		}	

@@ -23,6 +23,7 @@ namespace TGPGame
 		private static Player player;
 		private static Background background;
 		
+		
 		public static void Main (string[] args)
 		{
 
@@ -57,6 +58,7 @@ namespace TGPGame
 			//Set game scene
 			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			gameScene.Camera.SetViewFromViewport();
+			int lives = 3;
 			
 			//Set ui scene
 			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
@@ -66,10 +68,8 @@ namespace TGPGame
 			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
 			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
 			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
-			scoreLabel.SetPosition(
-				Director.Instance.GL.Context.GetViewport().Width/2 - scoreLabel.Width/2,
-				Director.Instance.GL.Context.GetViewport().Height*0.1f - scoreLabel.Height/2);
-			scoreLabel.Text = "0";
+			scoreLabel.SetPosition(20,20);
+			scoreLabel.Text = "Lives: " + lives;
 			panel.AddChildLast(scoreLabel);
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
@@ -80,9 +80,9 @@ namespace TGPGame
 			player = new Player(gameScene);
 			
 			obstacles = new Obstacle[3];
-			obstacles[0] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width*0.5f, gameScene);	
-			obstacles[1] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
-			obstacles[2] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
+			obstacles[0] = new Obstacle(200, gameScene);	
+			obstacles[1] = new Obstacle(450, gameScene);
+			obstacles[2] = new Obstacle(700, gameScene);
 			Director.Instance.RunWithScene(gameScene, true);
 			
 			foreground = new Foreground(gameScene);
