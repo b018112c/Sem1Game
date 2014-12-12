@@ -22,6 +22,7 @@ namespace TGPGame
 		private static Obstacle[] obstacles;
 		private static Player player;
 		private static Background background;
+		private static GamePadData gamePadData;
 		
 		
 		public static void Main (string[] args)
@@ -90,13 +91,23 @@ namespace TGPGame
 
 		public static void Update ()
 		{
+			
 			// Query gamepad for current state
 			//var gamePadData = GamePad.GetData (0);
+			gamePadData = GamePad.GetData(0);
 			
-			//Determine whether the player tapped the screen
-			var touches = Touch.GetData(0);
-			if(touches.Count > 0)
-				player.Tapped();
+			//If Cross is pressed the player jumps
+			if(gamePadData.Buttons.HasFlag(GamePadButtons.Cross))
+			{
+				Console.WriteLine("Cross");	
+				player.pressedCross();
+			}
+			if(gamePadData.Buttons.HasFlag(GamePadButtons.Triangle))
+			{
+				Console.WriteLine("Triangle");	
+				player.pressedTriangle ();
+			}
+			
 			//Update
 			player.Update(0.0f);
 			

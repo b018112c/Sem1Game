@@ -1,5 +1,6 @@
 using System;
 
+
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
 
@@ -15,8 +16,10 @@ namespace TGPGame
 		private static TextureInfo textureInfo;
 		private static int pushAmount = 100;
 		private static float yPositionBeforePush;
-		private static bool	rise;
+		private static float yPositionAfterDive;
+		private static bool	jump;
 		private static bool	alive;
+		private static bool dive;
 		
 		public bool Alive { get{return alive;} set{alive = value;} }
 		
@@ -31,7 +34,8 @@ namespace TGPGame
 			
 			sprite.Position = new Vector2(50.0f,(Director.Instance.GL.Context.GetViewport().Height*0.5f)-30.0f);
 			
-			rise  = false;
+			jump  = false;
+			dive = false;
 			alive = true;
 			
 			//Add to scene
@@ -46,25 +50,48 @@ namespace TGPGame
 		public void Update(float deltaTime)
 		{			
 			//adjust the push
-			if(rise)
+			if(jump & !dive)
 			{
 				if( (sprite.Position.Y-yPositionBeforePush) < pushAmount)
 					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3f);
 				else
-					rise = false;
+					jump = false;
 			}
-			else
+			else if(sprite.Position.Y > 242 & !dive)
 			{
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 0);
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3f);
+			}
+			
+			if(dive & !jump)
+			{
+				if(sprite.Position.Y > 130)
+				{
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3f);
+				}
+				else
+					dive = false;
+			}
+			else if(sprite.Position.Y < 242 & !jump)
+			{
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3f);
+				dive = false;
 			}
 		}	
 		
-		public void Tapped()
+		public void pressedCross()
 		{
-			if(!rise)
+			if(!jump)
 			{
-				rise = true;
+				jump = true;
 				yPositionBeforePush = sprite.Position.Y;
+			}
+		}
+		public void pressedTriangle()
+		{
+			if(!dive)
+			{
+				dive = true;
+				yPositionAfterDive = sprite.Position.Y;
 			}
 		}
 	}
