@@ -19,11 +19,12 @@ namespace TGPGame
 		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
 		
 		private static Foreground foreground;
-		private static Obstacle[] obstacles;
+		private static ObstacleT spike;
+		private static ObstacleM log;
+		private static ObstacleB rock;
 		private static Player player;
 		private static Background background;
 		private static GamePadData gamePadData;
-		
 		
 		public static void Main (string[] args)
 		{
@@ -44,8 +45,9 @@ namespace TGPGame
 			}		
 			foreground.Dispose();
 			player.Dispose();
-			foreach(Obstacle obstacle in obstacles)
-				obstacle.Dispose();
+				spike.Dispose();
+			log.Dispose();
+			rock.Dispose();
 			background.Dispose();
 			
 			Director.Terminate ();		
@@ -59,7 +61,7 @@ namespace TGPGame
 			//Set game scene
 			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			gameScene.Camera.SetViewFromViewport();
-			int lives = 3;
+			
 			
 			//Set ui scene
 			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
@@ -70,6 +72,7 @@ namespace TGPGame
 			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
 			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
 			scoreLabel.SetPosition(20,20);
+			int lives = 3;
 			scoreLabel.Text = "Lives: " + lives;
 			panel.AddChildLast(scoreLabel);
 			uiScene.RootWidget.AddChildLast(panel);
@@ -80,10 +83,9 @@ namespace TGPGame
 			
 			player = new Player(gameScene);
 			
-			obstacles = new Obstacle[3];
-			obstacles[0] = new Obstacle(200, gameScene);	
-			obstacles[1] = new Obstacle(450, gameScene);
-			obstacles[2] = new Obstacle(700, gameScene);
+			spike = new ObstacleT(200, gameScene);	
+			rock = new ObstacleB(450, gameScene);
+			log = new ObstacleM(700, gameScene);
 			Director.Instance.RunWithScene(gameScene, true);
 			
 			foreground = new Foreground(gameScene);
@@ -93,21 +95,38 @@ namespace TGPGame
 		{
 			
 			// Query gamepad for current state
-			//var gamePadData = GamePad.GetData (0);
 			gamePadData = GamePad.GetData(0);
 			
 			//If Cross is pressed the player jumps
+
 			if(gamePadData.Buttons.HasFlag(GamePadButtons.Cross))
 			{
 				Console.WriteLine("Cross");	
 				player.pressedCross();
 			}
-			if(gamePadData.Buttons.HasFlag(GamePadButtons.Triangle))
+			else if(gamePadData.Buttons.HasFlag(GamePadButtons.Circle))
 			{
-				Console.WriteLine("Triangle");	
-				player.pressedTriangle ();
+				Console.WriteLine("Circle");	
+				player.pressedCircle();
 			}
 			
+        
+
+        if(gamePadData.Buttons.HasFlag(GamePadButtons.Left))
+        {
+                Console.WriteLine("Left");	
+				player.pressedLeft();
+        }
+        else if(gamePadData.Buttons.HasFlag(GamePadButtons.Right))
+        {
+              	Console.WriteLine("Right");	
+				player.pressedRight();
+        }
+
+			
+			
+			CheckForCollision();
+
 			//Update
 			player.Update(0.0f);
 			
@@ -115,21 +134,67 @@ namespace TGPGame
 			{
 				foreground.Update(0.0f);
 				background.Update(0.0f);
-
-				foreach(Obstacle obstacle in obstacles)
-					obstacle.Update(0.0f);
+				
+					spike.Update(0.0f);
+				log.Update(0.0f);
+				rock.Update(0.0f);
 			}
 		}
-
-		//public static void Render ()
-		//{
-			// Clear the screen
-			//graphics.SetClearColor (0.0f, 0.0f, 0.0f, 0.0f);
-			//graphics.Clear ();
-
-			// Present the screen
-			//graphics.SwapBuffers ();
-		//}
+		
+		
+		
+		
+		
+		
+		public static void CheckForCollision()
+		{
+			Rectangle playerExtents = player.Extents;
+			Rectangle spikeExtents = spike.Extents;
+			Rectangle rockExtents = rock.Extents;
+			Rectangle logExtents = log.Extents;
+			//int lives = 3;
+			
+			if(Overlaps(playerExtents, spikeExtents) == true)
+			{
+				//lives = lives - 1;
+				//if (lives <= 0)
+				//{
+					player.Alive = false;
+					
+				//}
+			}
+			if (player.Alive == false)
+				player.Remove();
+			
+			if(Overlaps(playerExtents, rockExtents) == true)
+			{
+					player.Alive = false;
+			}
+			if (player.Alive == false)
+				player.Remove();
+			
+			if(Overlaps(playerExtents, logExtents) == true)
+			{
+				player.Alive = false;
+			}
+			if (player.Alive == false)
+				player.Remove();
+			
+		}
+		
+		private static bool Overlaps(Rectangle r1, Rectangle r2)
+		{
+			if (r1.X + r1.Width < r2.X)
+				return false;
+			if (r1.X > r2.X + r2.Width)
+				return false;
+			if (r1.Y + r1.Height < r2.Y)
+				return false;
+			if (r1.Y > r2.Y + r2.Height)
+				return false;
+			
+			return true;
+		}
 	}
 }
 

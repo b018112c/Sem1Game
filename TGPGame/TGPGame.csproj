@@ -40,9 +40,11 @@
   <ItemGroup>
     <Compile Include="AppMain.cs" />
     <Compile Include="Background.cs" />
-    <Compile Include="Obstacle.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Foreground.cs" />
+    <Compile Include="ObstacleT.cs" />
+    <Compile Include="ObstacleB.cs" />
+    <Compile Include="ObstacleM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
