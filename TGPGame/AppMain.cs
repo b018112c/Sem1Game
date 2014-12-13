@@ -18,6 +18,7 @@ namespace TGPGame
 		private static Sce.PlayStation.HighLevel.UI.Scene uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
 		
+		private static Gameover gameover;
 		private static Foreground foreground;
 		private static ObstacleT spike;
 		private static ObstacleM log;
@@ -89,6 +90,7 @@ namespace TGPGame
 			Director.Instance.RunWithScene(gameScene, true);
 			
 			foreground = new Foreground(gameScene);
+			gameover = new Gameover(gameScene);
 		}	
 
 		public static void Update ()
@@ -123,8 +125,6 @@ namespace TGPGame
 				player.pressedRight();
         }
 
-			
-			
 			CheckForCollision();
 
 			//Update
@@ -170,7 +170,10 @@ namespace TGPGame
 			
 			
 			if (player.Alive == false)
+			{
+				gameover.GG();
 				player.Remove();
+			}
 			
 		}
 		

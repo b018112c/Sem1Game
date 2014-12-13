@@ -3,13 +3,14 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="TGPGame\AppMain.cs">
     <Files>
       <File FileName="TGPGame\app.xml" Line="1" Column="1" />
-      <File FileName="TGPGame\AppMain.cs" Line="176" Column="34" />
-      <File FileName="TGPGame\Background.cs" Line="29" Column="49" />
-      <File FileName="TGPGame\Player.cs" Line="43" Column="26" />
+      <File FileName="TGPGame\AppMain.cs" Line="174" Column="5" />
+      <File FileName="TGPGame\Background.cs" Line="63" Column="63" />
+      <File FileName="TGPGame\Player.cs" Line="44" Column="18" />
+      <File FileName="TGPGame\Gameover.cs" Line="30" Column="4" />
       <File FileName="TGPGame\Foreground.cs" Line="59" Column="65" />
-      <File FileName="TGPGame\ObstacleT.cs" Line="14" Column="28" />
-      <File FileName="TGPGame\ObstacleB.cs" Line="32" Column="47" />
-      <File FileName="TGPGame\ObstacleM.cs" Line="24" Column="52" />
+      <File FileName="TGPGame\ObstacleT.cs" Line="27" Column="52" />
+      <File FileName="TGPGame\ObstacleB.cs" Line="50" Column="55" />
+      <File FileName="TGPGame\ObstacleM.cs" Line="21" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

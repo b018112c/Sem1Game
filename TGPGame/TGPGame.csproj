@@ -45,6 +45,7 @@
     <Compile Include="ObstacleT.cs" />
     <Compile Include="ObstacleB.cs" />
     <Compile Include="ObstacleM.cs" />
+    <Compile Include="Gameover.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -70,6 +71,7 @@
     <Content Include="textures\foreground2.png" />
     <Content Include="textures\eggy.png" />
     <Content Include="textures\log2.png" />
+    <Content Include="textures\gameover.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="textures\Thumbs.db" />

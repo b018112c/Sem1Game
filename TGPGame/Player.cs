@@ -14,7 +14,7 @@ namespace TGPGame
 		//Private variables
 		private static SpriteUV sprite;
 		private static TextureInfo textureInfo;
-
+		
 		private static bool	alive;
 		private static bool	jump;
 		private static bool dive;
@@ -35,12 +35,12 @@ namespace TGPGame
 		public Player (Scene scene)
 		{
 			textureInfo = new TextureInfo("/Application/textures/eggy.png");
-			
 			sprite = new SpriteUV(textureInfo);	
 			sprite.Quad.S = textureInfo.TextureSizef;
-			
 			sprite.Position = new Vector2(50.0f,(Director.Instance.GL.Context.GetViewport().Height*0.5f)-30.0f);
 			sprite.Visible = true;
+
+			
 			jump  = false;
 			dive = false;
 			left = false;
@@ -49,6 +49,7 @@ namespace TGPGame
 			
 			//Add to scene
 			scene.AddChild(sprite);
+		
 			
 		//	Bounds2 b = sprite.Quad.Bounds2();
 		//	width  = b.Point10.X;
@@ -59,6 +60,7 @@ namespace TGPGame
 		{
 			sprite.Visible = false;
 		}
+
 		
 		public void Dispose()
 		{
