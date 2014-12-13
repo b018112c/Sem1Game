@@ -69,6 +69,7 @@
     <Content Include="textures\background2.png" />
     <Content Include="textures\foreground2.png" />
     <Content Include="textures\eggy.png" />
+    <Content Include="textures\log2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="textures\Thumbs.db" />

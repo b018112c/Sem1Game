@@ -72,8 +72,8 @@ namespace TGPGame
 			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
 			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
 			scoreLabel.SetPosition(20,20);
-			int lives = 3;
-			scoreLabel.Text = "Lives: " + lives;
+			int lives = 0;
+			scoreLabel.Text = "Distance: " + lives;
 			panel.AddChildLast(scoreLabel);
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
@@ -135,16 +135,11 @@ namespace TGPGame
 				foreground.Update(0.0f);
 				background.Update(0.0f);
 				
-					spike.Update(0.0f);
+				spike.Update(0.0f);
 				log.Update(0.0f);
 				rock.Update(0.0f);
 			}
 		}
-		
-		
-		
-		
-		
 		
 		public static void CheckForCollision()
 		{
@@ -160,23 +155,20 @@ namespace TGPGame
 				//if (lives <= 0)
 				//{
 					player.Alive = false;
-					
-				//}
+					//}
 			}
-			if (player.Alive == false)
-				player.Remove();
-			
+
 			if(Overlaps(playerExtents, rockExtents) == true)
 			{
 					player.Alive = false;
 			}
-			if (player.Alive == false)
-				player.Remove();
-			
+
 			if(Overlaps(playerExtents, logExtents) == true)
 			{
 				player.Alive = false;
 			}
+			
+			
 			if (player.Alive == false)
 				player.Remove();
 			

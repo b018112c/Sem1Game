@@ -372,3 +372,5 @@ E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\eggy.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame.psdp
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\eggy.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\eggy.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\log2.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\log2.png

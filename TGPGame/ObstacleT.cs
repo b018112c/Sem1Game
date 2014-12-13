@@ -15,15 +15,13 @@ namespace TGPGame
 		private TextureInfo	textureInfoTop;
 		private float width;
 		private float height;
-		
 		//Accessors
 		//public SpriteUV SpriteTop { get{return sprites[0];} }
 		//public SpriteUV SpriteBottom { get{return sprites[1];} }
 		//public SpriteUV SpriteMiddle { get{return sprites[2];} }
-		
 		public Rectangle Extents
 		{
-			get {return new Rectangle(X, Y, 160, 242);}
+			get {return new Rectangle(X+5, Y, 60, 242);} //reduced width from 160
 		}
 		
 		public float X {get { return sprite.Position.X;}}
@@ -52,12 +50,12 @@ namespace TGPGame
 		
 		public void Update(float deltaTime)
 		{			
-			sprite.Position = new Vector2(sprite.Position.X - 3, sprite.Position.Y); //speed
+			sprite.Position = new Vector2(sprite.Position.X - 4, sprite.Position.Y); //speed
 			Random rnd = new Random();
-			int zero = rnd.Next(1, 700);
-			
+			int zero = rnd.Next(200, 1000);
+			Console.WriteLine(zero);
 			if(sprite.Position.X <= -200)//If off the left of the viewport, loop them around
-				sprite.Position = new Vector2(960 + zero, Director.Instance.GL.Context.GetViewport().Height - 220); //randomise distance(x)
+				sprite.Position = new Vector2(960 + zero, Director.Instance.GL.Context.GetViewport().Height - 190); //randomise distance(x)
 			
 		}
 			

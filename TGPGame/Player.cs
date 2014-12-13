@@ -25,7 +25,7 @@ namespace TGPGame
 		
 		public Rectangle Extents
 		{
-			get {return new Rectangle(X, Y, 124, 89);}
+			get {return new Rectangle(X + 5, Y + 5, 104, 79);} // X + 5 moves back line in by 5// Y + 5//width is 124 - 20, 104 +5 // height 89 -10 overall, 79 +5
 		}
 		
 		public float X {get { return sprite.Position.X;}}
@@ -72,28 +72,28 @@ namespace TGPGame
 			{
 				if( (sprite.Position.Y < 392))
 				{
-					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3f);
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3.5f);
 				}
 				else
 					jump = false;
 			}
 			else if(sprite.Position.Y > 242 & !dive)
 			{
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3f);
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3.5f);
 			}
 			
 			if(dive & !jump)
 			{
 				if(sprite.Position.Y > 92)
 				{
-					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3f);
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3.5f);
 				}
 				else
 					dive = false;
 			}
 			else if(sprite.Position.Y < 242 & !jump) //moves back to centre
 			{
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3f);
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3.5f);
 			}
 			//
 			
