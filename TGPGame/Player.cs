@@ -19,8 +19,7 @@ namespace TGPGame
 		private static bool	jump;
 		private static bool dive;
 		private static bool	left;
-		private static bool	right;
-		
+		private static bool	right;		
 		public bool Alive { get{return alive;} set{alive = value;} }
 		
 		public Rectangle Extents
@@ -45,8 +44,7 @@ namespace TGPGame
 			dive = false;
 			left = false;
 			right = false;
-			alive = true;
-			
+			alive = true;			
 			//Add to scene
 			scene.AddChild(sprite);
 		
@@ -105,21 +103,28 @@ namespace TGPGame
 			{
 				if((sprite.Position.X > 0))
 				{
-					sprite.Position = new Vector2(sprite.Position.X -2f, sprite.Position.Y);
+					sprite.Position = new Vector2(sprite.Position.X -1f, sprite.Position.Y);
 				}
 				else
 					left=false;
-			}	
-			
-			if(right) //replicate for right
-			{
-				if((sprite.Position.X < Director.Instance.GL.Context.GetViewport().Width - 130))
+			}
+				if(right) //replicate for right
 				{
-					sprite.Position = new Vector2(sprite.Position.X +2f, sprite.Position.Y);
-				}
-				else
-					right=false;
-			}	
+					if((sprite.Position.X < Director.Instance.GL.Context.GetViewport().Width - 130))
+					{
+						sprite.Position = new Vector2(sprite.Position.X + 1f, sprite.Position.Y);
+					}
+					else
+						right=false;
+						
+				}	
+				
+			
+			if(!left & !right)
+			{
+				left = false;
+				right = false;
+			}
 					
 		}	
 		
@@ -128,7 +133,7 @@ namespace TGPGame
 			if(!jump)
 			{
 				jump = true;
-			
+				dive = false;
 			}
 		}
 		public void pressedCircle()
@@ -136,7 +141,7 @@ namespace TGPGame
 			if(!dive)
 			{
 				dive = true;
-		
+				jump = false;		
 			}
 		}
 		
@@ -146,7 +151,7 @@ namespace TGPGame
 			if(!left)
 			{
 				left = true;
-
+				right = false;
 			}
 		}
 		
@@ -155,7 +160,7 @@ namespace TGPGame
 			if(!right)
 			{
 				right = true;
-
+				left = false;
 			}
 		}
 		

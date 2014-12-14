@@ -111,8 +111,6 @@ namespace TGPGame
 				Console.WriteLine("Circle");	
 				player.pressedCircle();
 			}
-			
-        
 
         if(gamePadData.Buttons.HasFlag(GamePadButtons.Left))
         {
