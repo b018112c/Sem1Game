@@ -13,8 +13,6 @@ namespace TGPGame
 		//Private variables
 		private SpriteUV	sprite;
 		private TextureInfo	textureInfoBottom;
-		private float width;
-		private float height;
 		
 		public Rectangle Extents
 		{
@@ -35,14 +33,8 @@ namespace TGPGame
 			//Add to the current scene
 			scene.AddChild(sprite);
 			
-			//Get sprite bounds
-			Bounds2 b = sprite.Quad.Bounds2();
-			width  = b.Point10.X;
-			height = b.Point01.Y;
-			
 			//Position objects	
-		sprite.Position = new Vector2(500, -10);		
-			//sprites[0].Position.Y-height-200 used in Y
+		sprite.Position = new Vector2(500, -10);	
 		}
 		
 		public void Update(float deltaTime)

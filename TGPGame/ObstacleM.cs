@@ -13,8 +13,6 @@ namespace TGPGame
 		//Private variables
 		private SpriteUV	sprite;
 		private TextureInfo textureInfoMiddle;
-		private float width;
-		private float height;
 		
 		public Rectangle Extents
 		{
@@ -34,12 +32,7 @@ namespace TGPGame
 			sprite.Quad.S = textureInfoMiddle.TextureSizef;
 			//add to scene
 			scene.AddChild (sprite);
-			
-			//Get sprite bounds
-			Bounds2 b = sprite.Quad.Bounds2();
-			width  = b.Point10.X;
-			height = b.Point01.Y;
-			
+
 			//Position objects	
 		sprite.Position = new Vector2(-200, 200);
 			
@@ -47,13 +40,12 @@ namespace TGPGame
 		
 		public void Update(float deltaTime)
 		{			
-			sprite.Position = new Vector2(sprite.Position.X - 3, sprite.Position.Y);
+			sprite.Position = new Vector2(sprite.Position.X - 2.8f, sprite.Position.Y);
 			Random rnd = new Random();
 			int two = rnd.Next(1, 300);
 
 			if(sprite.Position.X <= -200)
 				sprite.Position = new Vector2(960 + two, 200);
-			//sprites[2].Rotate(0.02f);
 			
 		}
 			

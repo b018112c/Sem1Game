@@ -27,10 +27,6 @@ namespace TGPGame
 			
 			//Add to scene
 			scene.AddChild(spriteGG);
-			
-		//	Bounds2 b = sprite.Quad.Bounds2();
-		//	width  = b.Point10.X;
-		//	height = b.Point01.Y;
 		}
 
 		public void GG()

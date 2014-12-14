@@ -16,7 +16,6 @@ namespace TGPGame
 	{
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene uiScene;
-		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
 		
 		private static Gameover gameover;
 		private static Foreground foreground;
@@ -26,10 +25,10 @@ namespace TGPGame
 		private static Player player;
 		private static Background background;
 		private static GamePadData gamePadData;
+		private static UI ui;
 		
 		public static void Main (string[] args)
 		{
-
 			Initialize();
 
 			bool quitGame = false;
@@ -62,22 +61,17 @@ namespace TGPGame
 			//Set game scene
 			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			gameScene.Camera.SetViewFromViewport();
-			
-			
+
 			//Set ui scene
 			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
 			Panel panel  = new Panel();
 			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
 			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
-			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
-			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
-			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
-			scoreLabel.SetPosition(20,20);
-			int lives = 0;
-			scoreLabel.Text = "Distance: " + lives;
-			panel.AddChildLast(scoreLabel);
-			uiScene.RootWidget.AddChildLast(panel);
-			UISystem.SetScene(uiScene);
+			
+			ui = new UI(panel);
+			
+		uiScene.RootWidget.AddChildLast(panel);
+		UISystem.SetScene(uiScene);
 			
 			//Create objects
 			background = new Background(gameScene);
@@ -95,7 +89,6 @@ namespace TGPGame
 
 		public static void Update ()
 		{
-			
 			// Query gamepad for current state
 			gamePadData = GamePad.GetData(0);
 			
@@ -111,7 +104,7 @@ namespace TGPGame
 				Console.WriteLine("Circle");	
 				player.pressedCircle();
 			}
-
+			
         if(gamePadData.Buttons.HasFlag(GamePadButtons.Left))
         {
                 Console.WriteLine("Left");	
@@ -136,6 +129,8 @@ namespace TGPGame
 				spike.Update(0.0f);
 				log.Update(0.0f);
 				rock.Update(0.0f);
+				
+				ui.Update(0.0f);
 			}
 		}
 		
@@ -145,15 +140,10 @@ namespace TGPGame
 			Rectangle spikeExtents = spike.Extents;
 			Rectangle rockExtents = rock.Extents;
 			Rectangle logExtents = log.Extents;
-			//int lives = 3;
 			
 			if(Overlaps(playerExtents, spikeExtents) == true)
 			{
-				//lives = lives - 1;
-				//if (lives <= 0)
-				//{
 					player.Alive = false;
-					//}
 			}
 
 			if(Overlaps(playerExtents, rockExtents) == true)
