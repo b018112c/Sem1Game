@@ -40,7 +40,7 @@ namespace TGPGame
 		
 		public void Update(float deltaTime)
 		{			
-			sprite.Position = new Vector2(sprite.Position.X - 2.8f, sprite.Position.Y);
+			sprite.Position = new Vector2(sprite.Position.X - 2.5f, sprite.Position.Y);
 			Random rnd = new Random();
 			int two = rnd.Next(1, 300);
 

@@ -380,3 +380,5 @@ E:\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\log2.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\gameover.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\log2.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\gameover.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\startScreenTex.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\startScreenTex.png

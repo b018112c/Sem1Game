@@ -38,7 +38,6 @@ namespace TGPGame
 			sprite.Quad.S = textureInfo.TextureSizef;
 			sprite.Position = new Vector2(50.0f,(Director.Instance.GL.Context.GetViewport().Height*0.5f)-30.0f);
 			sprite.Visible = true;
-
 			
 			jump  = false;
 			dive = false;
@@ -47,11 +46,6 @@ namespace TGPGame
 			alive = true;			
 			//Add to scene
 			scene.AddChild(sprite);
-		
-			
-		//	Bounds2 b = sprite.Quad.Bounds2();
-		//	width  = b.Point10.X;
-		//	height = b.Point01.Y;
 		}
 		
 		public void Remove()
@@ -95,15 +89,12 @@ namespace TGPGame
 			{
 				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3.5f);
 			}
-			//
-			
-			
-			//
+
 			if(left) 
 			{
 				if((sprite.Position.X > 0))
 				{
-					sprite.Position = new Vector2(sprite.Position.X -1f, sprite.Position.Y);
+					sprite.Position = new Vector2(sprite.Position.X -2f, sprite.Position.Y);
 				}
 				else
 					left=false;
@@ -112,14 +103,12 @@ namespace TGPGame
 				{
 					if((sprite.Position.X < Director.Instance.GL.Context.GetViewport().Width - 130))
 					{
-						sprite.Position = new Vector2(sprite.Position.X + 1f, sprite.Position.Y);
+						sprite.Position = new Vector2(sprite.Position.X + 2f, sprite.Position.Y);
 					}
 					else
-						right=false;
-						
+						right=false;	
 				}	
 				
-			
 			if(!left & !right)
 			{
 				left = false;
@@ -145,7 +134,6 @@ namespace TGPGame
 			}
 		}
 		
-		
 		public void pressedLeft()
 		{
 			if(!left)
@@ -162,8 +150,7 @@ namespace TGPGame
 				right = true;
 				left = false;
 			}
-		}
-		
+		}	
 	}
 }
 
