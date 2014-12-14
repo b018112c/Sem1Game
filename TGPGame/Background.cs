@@ -58,9 +58,9 @@ namespace TGPGame
 		
 		public void Update(float deltaTime)
 		{			
-			sprites[0].Position = new Vector2(sprites[0].Position.X - 0.8f, sprites[0].Position.Y);
-			sprites[1].Position = new Vector2(sprites[1].Position.X - 0.8f, sprites[1].Position.Y);
-			sprites[2].Position = new Vector2(sprites[2].Position.X - 0.8f, sprites[2].Position.Y);
+			sprites[0].Position = new Vector2(sprites[0].Position.X - 2f, sprites[0].Position.Y);
+			sprites[1].Position = new Vector2(sprites[1].Position.X - 2f, sprites[1].Position.Y);
+			sprites[2].Position = new Vector2(sprites[2].Position.X - 2f, sprites[2].Position.Y);
 			
 			//Left
 			if(sprites[0].Position.X < -width)

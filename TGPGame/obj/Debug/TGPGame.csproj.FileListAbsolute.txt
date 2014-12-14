@@ -91,7 +91,6 @@ D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\Syst
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\System.ServiceModel.dll
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\app.exe.mdb
-D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\background.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\bottom.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\egg.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\foreground.png
@@ -113,7 +112,6 @@ D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\System
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\System.ServiceModel.dll
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\Sce.PlayStation.HighLevel.UI.dll
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\app.exe.mdb
-D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\background.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\bottom.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\egg.png
 D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\foreground.png
@@ -372,3 +370,9 @@ E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\background2.pn
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\foreground2.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\eggy.png
 E:\Sem1Game\TGPGame\bin\Debug\TGPGame.psdp
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\eggy.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\eggy.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\log2.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\log2.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-unsigned\Application\textures\gameover.png
+D:\Documents\GitHub\Sem1Game\TGPGame\bin\Debug\TGPGame-signed\Application\textures\gameover.png
